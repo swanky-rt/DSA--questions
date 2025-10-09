@@ -144,8 +144,8 @@ public class ArrayQues {
     /*
     three number product.
     given an array, need to multiply every numbers except that number and it has to be done in O(n) without using the division operation.
-    case1: if there is no zero, then multiple all elements and divide it by that number to return the product.
-    case 2: if there is one zero, then logic will be changed as dividing by zero will be undefined so - here the product will bw
+    case1: if there is no zero, then multiply all elements and divide it by that number to return the product.
+    case 2: if there is one zero, then logic will be changed as dividing by zero will be undefined so - here the product will be
     rest of the other elements.
     case 3: if there are more than one zero then product will always be zero.
      */
@@ -163,7 +163,7 @@ public class ArrayQues {
                 product = product * nums[i];
             }
         }
-        System.out.println(" final product" + product);
+        System.out.println(" product" + product);
 
         for(int i=0; i<nums.length; i++) {
             if (nums[i] == 0) {
@@ -180,9 +180,6 @@ public class ArrayQues {
                 result[i] = product;
             }
             else if(count==0){
-                System.out.println("product" + product);
-                System.out.println(result[i]);
-                System.out.println(nums[i]);
                 result[i] = product/nums[i];
             }
             else{
