@@ -2,6 +2,7 @@
 
 import java.util.*;
 
+// check whether it is palindrome
 public class StringQues{
     public int countString(String s){
         int count = 0;
@@ -122,7 +123,7 @@ public class StringQues{
     //but how can we compare it with other string, that's need to be figured out.-> [[],[],[]]
 
     /**
-     * we need 1 element, then compare with all elements, and find its anagrams and keep all in list- fixed one and compare woth
+     * we need 1 element, then compare with all elements, and find its anagrams and keep all in list- fixed one and compare with
      * others. and then who ever is qualifying then keep putting in the list.
      * then take next left put element and then let it take its anagrams
      * and so on.....
@@ -156,6 +157,7 @@ public class StringQues{
             List<String> anaList = entry.getValue();
             anagramList.add(anaList);
         }
+
         return anagramList;
     }
 
