@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.*;
 
 public class Test {
 
@@ -32,6 +30,24 @@ public class Test {
         for(String st : arrList){
             System.out.println(st);
         }
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(1,2);
+        map.put(2,3);
+
+        Iterator<Map.Entry<Integer, Integer>> iterator = map.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry<Integer, Integer> entry = iterator.next();
+            int x = entry.getKey();
+            int y = entry.getValue();
+
+        }
+
+        for(Map.Entry<Integer, Integer> entry: map.entrySet()){
+            int a = entry.getKey();
+            int b = entry.getValue();
+        }
+
 
 
     }

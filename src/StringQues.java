@@ -19,6 +19,27 @@ public class StringQues{
         System.out.print("String is Plaindrome: " + flag);
         return count;
     }
+
+    //check anagrams for 2 strings
+    public boolean checkAnagrams(String s1, String s2){
+        int [] count = new int[26];
+
+        for(int i=0; i<s1.length(); i++) {
+
+            count[s1.charAt(i) - 'a']++; // 0,1,2
+
+            count[s2.charAt(i) - 'a']--; // 0, 0, 0
+
+        }
+
+        for(int c: count){
+            if(c!= 0){
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
 // Anagram: 2 strings are anagrams if they contain same elements with same frequency.
     // check1: it should contain same number of elements - check the string length.
     // check2: number of elements should be equal
@@ -33,7 +54,6 @@ public class StringQues{
                 } else {
                     map1.put(s1.charAt(i), 1);
                 }
-
             }
             for (int i = 0; i < s2.length(); i++) {
                 if (map2.containsKey(s2.charAt(i))) {
@@ -207,7 +227,49 @@ public class StringQues{
         return flag;
     }
 
+    // count the number of anagrams in a string from given pattern
 
+    public int getAnagrams(String str, String text){
+        int result = 0;
+        for(int i=0; i<str.length()-text.length()+1; i++){
+            System.out.println(str.substring(i, i+text.length()));
+            if(isAnagram(str.substring(i, i+text.length()), text)){
+                result++;
+            }
+        }
+        return result;
+    }
+
+// count the number of anagrams ina string from a given pattern using efficient approach
+
+//    public int getAnalgramsEfficient(String str, String text){
+//        if(text.length()>str.length()){
+//            return 0;
+//        }
+//        int [] count = new int[26];
+//        for(int i=0; i<text.length(); i++){
+//            char ch = text.charAt(i);
+//            count[ch-'a']++;
+//        }
+//        for(int j=0; j<text.length()-1; j++){
+//            char ch = str.charAt(j);
+//            count[ch-'a']--;
+//        }
+//
+//        int answer = 0;
+//        for(int i = text.length()-1; i< str.length(); i++){
+//            char ch = str.charAt(i);
+//            count[ch - 'a']--;
+//            if(anagram(count)){
+//                answer++;
+//            }
+//            char toDelete = str.charAt(i-text.length()+1);
+//            count[toDelete-'a']++;
+//        }
+//        return answer;
+//
+//
+//    }
 
     public static void main(String[] args){
         StringQues stringQues = new StringQues();
@@ -219,7 +281,7 @@ public class StringQues{
         //System.out.println(stringQues.checkParanthesis("[{()}]"));
         //System.out.println(stringQues.checkParanthesis("[]{}()"));
         //System.out.println(stringQues.checkParanthesis("{[()]}"));
-        System.out.println(stringQues.checkParanthesis("{[()}"));
+        //System.out.println(stringQues.checkParanthesis("{[()}"));
 
 
         //stringQues.isAnagram("listen", "silent");
@@ -227,6 +289,10 @@ public class StringQues{
 
         //System.out.println("the given string is palindrome? " + stringQues.isPalindrome("AartiitraA"));
         //System.out.printlm("the count is "+ stringQues.countString("ABAAAC"));
+
+        //System.out.println(stringQues.getAnagrams("forxxorfxdofr", "for"));
+
+        System.out.println(stringQues.checkAnagrams("abc", "cab"));
     }
 
 }
