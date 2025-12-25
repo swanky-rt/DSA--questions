@@ -227,4 +227,8 @@ public class ArrayQues {
             System.out.print(getProduct[i] + " ");
         }
     }
+
+    public void getNames(String name){
+        System.out.print("my name is " + name);
+    }
 }
