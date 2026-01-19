@@ -1,6 +1,5 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.nio.file.Paths;
+import java.util.*;
 
 public class MiscellaneousQues {
     //Fibanocci series
@@ -15,6 +14,17 @@ public class MiscellaneousQues {
             a = b;
             b = c;
         }
+    }
+
+    public int removeDuplicate(int [] nums){
+        int i=0;
+        for (int j=0; j<nums.length; j++){
+           if(nums[i]!= nums[j]){
+               i++;
+               nums[i] = nums[j];
+           }
+        }
+        return i+1;
     }
 
     // prefix sum
@@ -77,6 +87,48 @@ public class MiscellaneousQues {
             }
         }
         return countSwap;
+
+    }
+
+    public int[] find1stnLastOccurence(int [] nums, int target){
+        int [] result = {-1, -1};
+
+        if(nums.length==0 || target<=0) {
+            return result;
+        }
+// first occurrence
+        int left = 0, right = nums.length-1;
+        while(left<=right){
+            int mid = left + ( right - left)/2;
+
+            if(nums[mid] >= target){ //2,3,4,5, 5,6,7 - > target - 3, mid = 3
+                right = mid - 1;
+            }
+            else{
+                left = mid + 1;
+            }
+        }
+
+        // second occurrence
+        if(left>= nums.length || nums[left]!= target){
+            return result;
+        }
+
+        result[0] = left;
+
+        right = nums.length-1;
+        while(left<= right){
+            int mid = left + (right - left)/2;
+
+            if(nums[mid] <= target){ //
+                left = mid +1;
+            }
+            else{
+                right = mid -1;
+            }
+        }
+        result[1] = right;
+        return result;
 
     }
 
@@ -205,5 +257,8 @@ public class MiscellaneousQues {
             System.out.print(numbers[i] + " ");
         }
 
+        System.out.println("the total unique elements are " +  miscellaneousQues.removeDuplicate(new int[]{1,2,3,3,5,6}));
+        int [] result = miscellaneousQues.find1stnLastOccurence(new int []{1,2,3,3,4,5,6}, 3);
+        System.out.println("the output for first occurence and last occurence are" + Arrays.toString(result));
     }
 }

@@ -185,12 +185,9 @@ public class ArrayQues {
             else{
                  result[i] = 0;
             }
-
                 }
 
         return result;
-
-
     }
 
 
