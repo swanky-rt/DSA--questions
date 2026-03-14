@@ -259,4 +259,4 @@ public class LList {
 
 **swanky-rt** — [github.com/swanky-rt](https://github.com/swanky-rt)
 
-> *"Solving every problem the hard way first — then the smart way."*
+> *"Solving every problem the hard way first, then the smart way."*
